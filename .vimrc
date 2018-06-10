@@ -39,6 +39,9 @@ Plugin 'Yggdroot/indentLine'
 call vundle#end()
 filetype plugin indent on
 
+" Set leader to space
+let mapleader = "<Space>" 
+
 " Indent Options
 set autoindent
 set smartindent
@@ -49,6 +52,7 @@ set expandtab
 " Text Options
 set textwidth=120
 set scrolloff=5
+set sidescrolloff=5
 set number
 set showmatch
 
@@ -63,14 +67,16 @@ set ignorecase
 set smartcase 
 set hlsearch
 
+set autoread
+set ruler
+set wildmenu
+
 set comments=sl:/*,mb:\ *,elx:\ */
 
 set laststatus=2
 
 nmap j gj
 nmap k gk
-
-set omnifunc=htmlcomplete#CompleteTags
 
 map <C-c> <Esc>
 
@@ -89,6 +95,8 @@ let g:rustfmt_autosave = 1
 
 " Indent Guide Options
 let g:indentLine_char = '•'
+let g:indentLine_leadingSpaceChar = '•'
+let g:indentLine_leadingSpaceEnabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NerdTree Options
