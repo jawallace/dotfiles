@@ -40,27 +40,10 @@ SSL or remove this warning from your init file."))
   :ensure t
   :config (which-key-mode))
 
-;; (use-package git-gutter
-;;   :ensure t)
-
-;; (use-package helm
-;;   :ensure t
-;;   :bind (("M-x" . helm-M-x)
-;;          ("C-x b" . helm-mini)
-;;          ("C-x C-f" . helm-find-files)
-;;          :map helm-command-map
-;;          ("o" . helm-occur)
-;;          :map helm-map
-;;          ("C-j" . helm-next-line)
-;;          ("C-k" . helm-prev-line))
-;;   :config
-;;   (setq helm-command-prefix-key "C-x h")
-;;   (use-package helm-xref
-;;     :ensure t))
-
-;; (use-package helm-dash
-;;   :ensure t
-;;   :after helm)
+(use-package git-gutter
+  :ensure t
+  :hook (prog-mode . git-gutter-mode)
+  :config (setq git-gutter:update-interval 0.02))
 
 (use-package magit
   :ensure t
@@ -149,24 +132,13 @@ SSL or remove this warning from your init file."))
   (setq read-extended-command-predicate #'command-completion-default-include-p))
 
 
-;; (defun jw/helm-project-find-file ()
-;;   (interactive)
-;;   (find-file
-;;    (helm :sources (helm-build-sync-source "Project Files"
-;;                                           :candidates (project-files (project-current t)))
-;;          :buffer "*Helm Project File Selection*")))
-
-;; (use-package project
-;;   :ensure t
-;;   :bind (("C-x p f" . jw/helm-project-find-file)))
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(vertico orderless company-c-headers helm-dash doom-themes doom-modeline yasnippet which-key projectile magit helm company))
+   '(git-gutter vertico orderless company-c-headers helm-dash doom-themes doom-modeline yasnippet which-key projectile magit helm company))
  '(safe-local-variable-values '((eval eglot-ensure) (eval eglot 1) (eval eglot))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
