@@ -89,9 +89,12 @@ SSL or remove this warning from your init file."))
 
 (use-package eglot
   :ensure t
+  :hook (java-mode . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs
-               '(zig-mode . ("zls"))))
+               '(zig-mode . ("zls")))
+  (add-to-list 'eglot-server-programs
+               '(java-mode . ("java-lsp"))))
 
 (use-package vertico
   :ensure t
